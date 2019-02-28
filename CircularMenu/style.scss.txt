@@ -1,11 +1,11 @@
 @import "compass/css3";
 
-// can touch this!
+
 $items: 6;
 $size: 100;
 $bgcolor: #F6717F;
 
-// can't touch this!
+
 $deg: 360/$items;
 $unrotate: - (90 - $deg)/2;
 $skew: 90 - $deg;
