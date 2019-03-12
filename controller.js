@@ -360,3 +360,22 @@ webix.event(window, 'resize',function() {
 
 
 }]);
+
+
+
+
+//////Solution1
+
+var json_data = [
+        {json content }
+];
+ 
+webix.ui({
+    view:"datatable",
+    columns:[..],
+    data: json_data
+});
+
+
+
+
