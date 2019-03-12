@@ -377,5 +377,16 @@ webix.ui({
 });
 
 
+/////Solution2   for data through URL -JSON
+ webix.ui({view:"datatable",
+               columns: [
+                   {id: "1", header:"system name", width: 80 },
+                   {id: "2", header:"system description", width: 80 }
+               ],
+               url = "http://public.opencpu.org/ocpu/library/datasets/data/faithful/json",
+               autowidth:true
+     });
+
+
 
 
