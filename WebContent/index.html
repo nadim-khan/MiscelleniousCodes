@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html manifest="index.appcache">
+<head>
+<meta charset="UTF-8">
+<script src="js/JQuery.js"></script>
+<script src="js/index.js"></script>
+<title>Excercise</title>
+</head>
+<body align="center" onload="onBodyLoad()">
+ Name:<br>
+  <input type="text" id="name" value="">
+  <br>
+ Address :<br>
+  <input type="text" id="addr" value="">
+  <br><br>
+  <input type="button" value="Add" id="addButton" onclick="addIt()" disabled>
+<p>Status : <strong>
+</strong><span id="statusId"></span>
+</p>
+<input type="button" value="Sync It" id="syncButton" onclick="syncIt()" disabled>
+
+</body>
+</html>

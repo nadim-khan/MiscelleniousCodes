@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# 2019 Nadeen-Adil:v2
+
+# Explicitly cached 'master entries'.
+CACHE:
+js/index.js
+js/JQuery.js
+
+# Resources that require the user to be online.
+NETWORK:
+*
+FALLBACK:
