@@ -1,0 +1,250 @@
+<!-----  HTML Code ---------------------------------------------------------------------->
+<div id="vueApp" v-bind:class="classObject">
+   <p><span >This will never change: {{ alert }}</span></p>
+	<p v-bind:title='alert' v-if="xyz" ><b >Message :- </b>{{ message }}</p>
+   <p v-bind:disabled="isButtonDisabled"><b>Reversed Message :- </b> {{ reverseIt() }}</p>
+	<button v-on:click="message = 'Me badal chuka hu dost'">Change it</button>
+   <button v-bind:disabled="isButtonDisabled" v-on:click="alert = 'Me bhi badal chuka hu dost'">Change alert</button>
+   <button  v-bind:disabled="isButtonDisabled" v-on:click="reverseIt">Reverse This</button>
+   <template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address">
+</template>
+   
+   <hr>
+   <ul >
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
+   <br> With Object (For loop)
+   <ul id="v-for-object" class="demo">
+  <li v-for="(value, name) in object" v-bind:key="item.id">
+   {{ value }} - {{ name }}
+  </li>
+</ul>
+   
+   <hr><hr>
+   <button v-on:click="fullName"> Show Name </button>
+   
+      <p > Name : - {{ fullName }}</p>
+</div>
+
+<b><hr></b>
+
+<div id="watch-example">
+  <p>
+    Ask a yes/no question:
+    <input v-model="question">
+  </p>
+  <p>{{ answer }}</p>
+</div>
+
+<div v-if="Math.random() > 0.5">
+  Now you see me
+</div>
+<div v-else>
+  Now you don't
+</div>
+<hr>
+
+
+<hr><hr>
+<h2><b>My TO-DO Application </b></h2>
+<hr>
+<div id="todo-list-example">
+  <form v-on:submit.prevent="addNewTodo">
+    <label for="new-todo">Add a todo</label>
+    <input
+      v-model="newTodoText"
+      id="new-todo"
+      placeholder="E.g. Feed the cat"
+    >
+    <button>Add</button>
+  </form>
+  <ul>
+    <li
+      is="todo-item"
+      v-for="todo in todos"
+      v-bind:key="todo.id"
+      v-bind:title="todo.title"
+      v-on:remove="todos.splice(index, 1)"
+    ></li>
+  </ul>
+</div>
+
+
+
+
+
+
+/* JavaScript Code ********************************************//
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<script>
+var myData={
+				message : 'Vue JS Worked !',
+				alert : "Im Good Bruhhh!",
+            isButtonDisabled:true,
+            firstName: 'Raaju',
+            lastName: 'Rastogi',
+            loginType:"username",
+             question: '',
+             answer: 'I cannot give you an answer until you ask a question!',
+             items: [
+                  { message: 'Foo' },
+                  { message: 'Bar' },
+                  { message: 'xxx' },
+                  { message: 'rrr' }
+                ],
+            object: {
+               title: 'How to do lists in Vue',
+               author: 'Jane Doe',
+               publishedAt: '2016-04-10'
+             }
+			}/* 
+		Object.freeze(myData); */
+		var vueApp = new Vue({
+			el : '#vueApp',
+			data : myData,
+         classObject: {
+             active: true,
+             'text-danger': false
+           },
+			methods:{
+            reverseIt:function(){
+               return this.message.split('').reverse().join('');
+             }
+         },
+         watch: {
+           
+            fullName:function(){
+               return this.firstName+' '+this.lastname;
+               
+            }
+         },
+         computed: {
+              fullName: {
+                   // getter
+                   get: function () {
+                     return this.firstName + ' ' + this.lastName
+                   },
+                // setter
+                set: function (newValue) {
+                     var names = newValue.split(' ')
+                     this.firstName = names[0]
+                     this.lastName = names[names.length - 1]
+                }
+              },
+            classObject: function () {
+                return {
+                  active: this.isActive && !this.error,
+                  'text-danger': this.error && this.error.type === 'fatal'
+                }
+              }
+            }
+		})
+      
+      
+      
+    var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'I cannot give you an answer until you ask a question!'
+  },
+  watch: {
+    // whenever question changes, this function will run
+    question: function (newQuestion, oldQuestion) {
+      this.answer = 'Waiting for you to stop typing...'
+      this.debouncedGetAnswer()
+    }
+  },
+  created: function () {
+    // _.debounce is a function provided by lodash to limit how
+    // often a particularly expensive operation can be run.
+    // In this case, we want to limit how often we access
+    // yesno.wtf/api, waiting until the user has completely
+    // finished typing before making the ajax request. To learn
+    // more about the _.debounce function (and its cousin
+    // _.throttle), visit: https://lodash.com/docs#debounce
+    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+  },
+  methods: {
+    getAnswer: function () {
+      if (this.question.indexOf('?') === -1) {
+        this.answer = 'Questions usually contain a question mark. ;-)'
+        return
+      }
+      this.answer = 'Thinking...'
+      var vm = this
+      axios.get('https://yesno.wtf/api')
+        .then(function (response) {
+          vm.answer = _.capitalize(response.data.answer)
+        })
+        .catch(function (error) {
+          vm.answer = 'Error! Could not reach the API. ' + error
+        })
+    }
+  }
+})
+    
+    
+    
+    
+    Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Do the dishes',
+      },
+      {
+        id: 2,
+        title: 'Take out the trash',
+      },
+      {
+        id: 3,
+        title: 'Mow the lawn'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+})
+
+
+
+
+
+
+
+
+
+
