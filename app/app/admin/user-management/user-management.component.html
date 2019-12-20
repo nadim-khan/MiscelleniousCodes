@@ -1,0 +1,38 @@
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+       <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+          <li>
+            <span class="fa-stack fa-lg pull-left"><i class="fa fa-user-circle-o fa-stack-1x "></i></span>User Management
+          </li>
+          <li>
+             <a [routerLink]="['/admin/userManagement/role']"><span class="fa-stack fa-lg pull-left"><i class="fa fa-street-view fa-stack-1x "></i></span>Role</a>
+          </li>
+          <li>
+             <a [routerLink]="['/admin/userManagement/department']"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-address-card fa-stack-1x "></i></span>Department</a>
+          </li>
+          <li>
+             <a [routerLink]="['/admin/userManagement/user']"><span class="fa-stack fa-lg pull-left"><i class="fa fa-user fa-stack-1x "></i></span>User</a>
+          </li>
+          <li>
+             <a [routerLink]="['/admin/userManagement/appAuth']"><span class="fa-stack fa-lg pull-left"><i class="fa fa-edit fa-stack-1x "></i></span>App Authorization</a>
+          </li>
+          <li>
+             <a [routerLink]="['/admin/userManagement/funcSecurity']"><span class="fa-stack fa-lg pull-left"><i class="fa fa-lock fa-stack-1x "></i></span>Functional Security</a>
+          </li>
+          <li>
+            <a [routerLink]="['/admin/userManagement/workflowConf']"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>Workflow Configuration</a>
+         </li>
+       </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+       <div class="container-fluid xyz">
+          <div class="row">
+             <div class="col-lg-12">
+                <router-outlet></router-outlet>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

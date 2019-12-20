@@ -1,0 +1,91 @@
+body {
+	font-family:'Open Sans', "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	font-weight: 400;
+}
+
+p, span, a, ul, li, button {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+strong {
+	font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	line-height: 1.5em;
+	font-weight: 300;	
+}
+
+strong {
+  font-weight: 400;
+}
+
+.tile {  
+  width: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	background: #fff;		
+	padding: 20px;
+	margin-bottom: 10px;
+  
+  .title {
+		margin-top: 0px;
+	}
+  
+  &.purple, &.blue, &.red, &.orange, &.green, &.pink {
+    color: #fff;
+  }
+  
+  &.purple {
+    background: #5133AB;
+
+		&:hover {
+			background: darken(#5133AB, 10%);
+		}		
+  }
+  &.pink {
+    background: rgb(171, 51, 145);
+
+		&:hover {
+			background: darken(rgb(171, 51, 145), 10%);
+		}		
+  }
+  
+  &.red {
+    background: #AC193D;
+
+		&:hover {
+			background: darken(#AC193D, 10%);
+		}		
+  }
+  
+  &.green {
+    background: #00A600;
+
+		&:hover {
+			background: darken(#00A600, 10%);
+		}		
+  }
+  
+  &.blue {
+    background: #2672EC;
+
+		&:hover {
+			background: darken(#2672EC, 10%);
+		}	
+  }
+  
+  &.orange {
+    background: #DC572E;
+
+		&:hover {
+			background: darken(#DC572E, 10%);
+		}	
+  }
+}

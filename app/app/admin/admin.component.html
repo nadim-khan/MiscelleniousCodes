@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default no-margin">
+    <div class="navbar-header fixed-brand">
+       <a class="navbar-brand" ><i class="fa fa-home "></i> Administrator </a>
+    </div>
+ </nav>
+ <nav class = "navbar navbar-default" role = "navigation">
+    <div class="adminMenu">
+       <ul class = "nav navbar-nav">
+          <li  ><a [routerLink]="['/admin/userManagement']">User Management</a></li>
+          <li><a [routerLink]="['/admin/systemConfig']">System Configuration</a></li>
+       </ul>
+    </div>
+ </nav>
+ <div>
+     <router-outlet></router-outlet>
+ </div>
+
+ 

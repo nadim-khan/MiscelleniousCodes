@@ -1,0 +1,84 @@
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+       <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            <li>
+                <span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>General Configuration 
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="glyphicon glyphicon-triangle-bottom"></span> Troubleshooting & Support</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">System Info</a>
+                    </li>
+                    <li>
+                        <a href="#">Application Info</a>
+                    </li>
+                    <li>
+                        <a href="#">LDAP Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#">Email Configuration</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#uiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="glyphicon glyphicon-triangle-bottom"></span> User Interfaces</a>
+                <ul class="collapse list-unstyled" id="uiSubmenu">
+                    <li>
+                        <a href="#">Look And Feel</a>
+                    </li>
+                    <li>
+                        <a href="#">Login Page Configuration</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#notiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="glyphicon glyphicon-triangle-bottom"></span> Notifications</a>
+                <ul class="collapse list-unstyled" id="notiSubmenu">
+                    <li>
+                        <a href="#">Notification Configuration</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#activitySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="glyphicon glyphicon-triangle-bottom"></span> Activity Configurations</a>
+                <ul class="collapse list-unstyled" id="activitySubmenu">
+                    <li>
+                        <a href="#">Activity Log</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#logSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="glyphicon glyphicon-triangle-bottom"></span> Logs</a>
+                <ul class="collapse list-unstyled" id="logSubmenu">
+                    <li>
+                        <a href="#">Export Brix Server Log</a>
+                    </li>
+                    <li>
+                        <a href="#">Export ASAM ODS Server Log</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#sessionSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="glyphicon glyphicon-triangle-bottom"></span> Sessions</a>
+                <ul class="collapse list-unstyled" id="sessionSubmenu">
+                    <li>
+                        <a href="#">Session Information</a>
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+       <div class="container-fluid xyz">
+          <div class="row">
+             <div class="col-lg-12">
+                <router-outlet></router-outlet>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
